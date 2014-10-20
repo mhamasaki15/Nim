@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class NimDriver{
   public static void main(String[] args){
     Scanner in = new Scanner(System.in);
-    boolean win = false;
-    int startnum = 13;
-    int pieces;
+    System.out.print("What is the total number of pieces?\n"); //Prompts user for total number of pieces.
+    int startnum = in.nextInt(); //Takes this number and makes it the starting number of pieces.
+    int pieces; 
     int playermove;
-    RandomNim test = new RandomNim(startnum);
+    Nim test = new Nim(); //Creates new object.
     pieces = startnum;
+    
     while (pieces > 1){
       System.out.println("There are " + pieces + " pieces remaining.");
       System.out.println("Enter your move: ");
@@ -22,12 +23,18 @@ public class NimDriver{
       pieces -= playermove;
       if (pieces == 1){
         System.out.println("Computer loses.");
+        
+        
       }
       else System.out.println("There are " + pieces + " pieces remaining.");
-      pieces -= test.play(pieces);
+      int compmove = test.play(pieces);
+      pieces -= compmove;
+      System.out.println("The computer took " + compmove + " pieces.");
       if (pieces == 1){
         System.out.println("You lose.");
       }
     }
   }
 }
+
+

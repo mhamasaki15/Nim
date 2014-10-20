@@ -9,7 +9,7 @@ public class NimDriver{
     int startnum = in.nextInt(); //Takes this number and makes it the starting number of pieces.
     int pieces; 
     int playermove;
-    Nim test = new Nim(); //Creates new object.
+    Nim test = new HamasakiNim(); //Creates new object.
     pieces = startnum;
     
     while (pieces > 1){
